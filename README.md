@@ -8,13 +8,9 @@ Welcome to the Ultimate Dictionary App! This Java-based dictionary project is yo
 
 - 🔍 Search Magic: Type in a word and watch as its definition appears like magic. It's like having a word wizard at your fingertips!
 - ✍️ Create Your Word Kingdom: Add new words and definitions to build your personal dictionary empire.
-- 🗑️ Bye-Bye Boring Words: Easily delete words you’ve outgrown or that just don’t fit your style anymore.
-- ✏️ Edit Like a Pro: Update definitions and examples to keep your dictionary fresh and fabulous.
 
 ### 📚 When to Use
 - 🤯 Language Learning: Perfect for students or language enthusiasts looking to expand their vocabulary and keep track of new words.
-- 📖 Writing and Editing: Ideal for writers and editors who want to maintain a personal glossary of terms and definitions.
-- 🎓 Educational Settings: Useful in classrooms for teachers and students to create and share personalized word lists and definitions.
 - 🗂️ Personal Knowledge Base: Build your own reference database of words, terms, and their meanings for quick access and review.
 
 ### 💡Getting Started
@@ -52,19 +48,5 @@ Stay informed with real-time server activity reports:
 
 <img src="https://github.com/verazi/Multithreaded-Dictionary-Server/blob/master/zreport/ServerReport.png" alt="Server report" width="300"/>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Dive in and start your word adventure today!
+If you have any questions or need help, feel free to reach out. Happy word exploring! 🌟📚🚀
