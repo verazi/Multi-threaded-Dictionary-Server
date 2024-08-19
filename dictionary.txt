@@ -1,0 +1,1 @@
+abc:meaning1 of abc;meaning2 of abc;meaning3 of abc
