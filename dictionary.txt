@@ -6,7 +6,7 @@ ice:Frozen water, typically in the form of cubes or sheets, used to cool drinks 
 apple:A fruit that is typically round, red, green, or yellow, and has a crisp flesh.;The tree that bears apples.
 lemon:A yellow, acidic fruit used to add flavor or in cooking.;A term used to describe a defective or unsatisfactory product.
 mountain:A large natural elevation of the earth's surface rising abruptly from the surrounding level.;A large pile or heap of something.
-computer:An electronic device for storing and processing data.
+computer:An electronic device for storing and processing data.;A person who computes or performs calculations.
 honey:A sweet, sticky substance made by bees from nectar.;A term of endearment used for someone you care about.
 waterfall:A flow of water over the edge of a cliff or precipice.;A term used to describe a sudden and dramatic flow or surge of something.
 Phone:A device used for voice communication over distances.
