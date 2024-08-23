@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,15 +34,17 @@ public class ConnectedClient {
     }
 
     public void readMessage() {
-        String line = "";
         while (true) {
             try {
-                line = in.readUTF();
+                String line = in.readUTF();
                 if (line.equals(DictionaryServer.STOP_STRING)) {
                     break;
                 }
                 System.out.println("Client" + ID + ": " + line);
                 handleClientCommand(line);
+            } catch (EOFException e) {
+                System.err.println("Client" + ID + " disconnected unexpectedly.");
+                break;
             } catch (IOException e) {
                 e.printStackTrace();
                 break;
@@ -49,6 +52,7 @@ public class ConnectedClient {
         }
         System.out.println("Client" + this.ID + " disconnected");
     }
+
 
     private void handleClientCommand(String command) throws IOException {
         String[] parts = command.split("%", 3);

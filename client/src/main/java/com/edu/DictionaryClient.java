@@ -165,34 +165,37 @@ public class DictionaryClient extends Application {
     private synchronized void queryWord() {
         String word = wordField.getText().trim();
         if (word.isEmpty()) {
-            logArea.appendText("Please enter a word to query.\n");
+            Platform.runLater(() -> logArea.appendText("Please enter a word to query.\n"));
             return;
         }
 
         try {
             out.writeUTF("QUERY%" + word);
             String response = readResponse();
-            meaningsList.getItems().clear();
-            updateLogAndList(response);
+            Platform.runLater(() -> {
+                meaningsList.getItems().clear();
+                updateLogAndList(response);
+            });
         } catch (IOException e) {
             handleError("Error querying the word.", e);
         }
     }
-
     private synchronized void addWord() {
         String word = wordField.getText().trim();
         String meaning = meaningField.getText().trim();
 
         if (word.isEmpty() || meaning.isEmpty()) {
-            logArea.appendText("Please enter both word and meaning to add.\n");
+            Platform.runLater(() -> logArea.appendText("Please enter both word and meaning to add.\n"));
             return;
         }
 
         try {
             out.writeUTF("ADD%" + word + "%" + meaning);
             String response = readResponse();
-            meaningsList.getItems().clear();
-            updateLogAndList(response);
+            Platform.runLater(() -> {
+                meaningsList.getItems().clear();
+                updateLogAndList(response);
+            });
         } catch (IOException e) {
             handleError("Error adding the word.", e);
         }
@@ -201,15 +204,17 @@ public class DictionaryClient extends Application {
     private synchronized void removeWord() {
         String word = wordField.getText().trim();
         if (word.isEmpty()) {
-            logArea.appendText("Please enter a word to remove.\n");
+            Platform.runLater(() -> logArea.appendText("Please enter a word to remove.\n"));
             return;
         }
 
         try {
             out.writeUTF("REMOVE%" + word);
             String response = readResponse();
-            meaningsList.getItems().clear();
-            updateLogAndList(response);
+            Platform.runLater(() -> {
+                meaningsList.getItems().clear();
+                updateLogAndList(response);
+            });
         } catch (IOException e) {
             handleError("Error removing the word.", e);
         }
@@ -220,15 +225,17 @@ public class DictionaryClient extends Application {
         String meaning = meaningField.getText().trim();
 
         if (word.isEmpty() || meaning.isEmpty()) {
-            logArea.appendText("Please enter both word and meaning to add.\n");
+            Platform.runLater(() -> logArea.appendText("Please enter both word and meaning to add.\n"));
             return;
         }
 
         try {
             out.writeUTF("ADD_MEANING%" + word + "%" + meaning);
             String response = readResponse();
-            meaningsList.getItems().clear();
-            updateLogAndList(response);
+            Platform.runLater(() -> {
+                meaningsList.getItems().clear();
+                updateLogAndList(response);
+            });
         } catch (IOException e) {
             handleError("Error adding meaning to the word.", e);
         }
@@ -239,15 +246,17 @@ public class DictionaryClient extends Application {
         String newMeaning = meaningField.getText().trim();
 
         if (word.isEmpty() || newMeaning.isEmpty()) {
-            logArea.appendText("Please enter both word and new meaning to update.\n");
+            Platform.runLater(() -> logArea.appendText("Please enter both word and new meaning to update.\n"));
             return;
         }
 
         try {
             out.writeUTF("UPDATE_MEANING%" + word + "%" + newMeaning);
             String response = readResponse();
-            meaningsList.getItems().clear();
-            updateLogAndList(response);
+            Platform.runLater(() -> {
+                meaningsList.getItems().clear();
+                updateLogAndList(response);
+            });
         } catch (IOException e) {
             handleError("Error updating the word's meaning.", e);
         }

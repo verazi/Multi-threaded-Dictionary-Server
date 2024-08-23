@@ -13,7 +13,7 @@ public class DictionaryServer {
     private ServerSocket server;
     private HashMap<String, ArrayList<String>> dictionary;
     public static final String STOP_STRING = "##";
-    private static final String DICTIONARY_FILE = "server/dictionary.txt";
+    private static final String DICTIONARY_FILE = "dictionary.txt";
     private int index = 0;
     
     public DictionaryServer(int port){
@@ -32,16 +32,20 @@ public class DictionaryServer {
     }
 
     private void iniConnections() throws IOException{
-        Socket clientSocket = server.accept();
-
-        // Threads
-        if(clientSocket.isConnected()){
-            new Thread(()->{
-                index++;
-                ConnectedClient client = new ConnectedClient(clientSocket, index, dictionary);
-                client.readMessage();
-                client.close();
-            }).start();
+        try {
+            Socket clientSocket = server.accept();
+            // Threads
+            if(clientSocket.isConnected()){
+                new Thread(()->{
+                    index++;
+                    ConnectedClient client = new ConnectedClient(clientSocket, index, dictionary);
+                    client.readMessage();
+                    client.close();
+                }).start();
+            }
+        } catch (Exception e) {
+            System.err.println("Error accepting connection: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 

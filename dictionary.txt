@@ -1,1 +1,30 @@
-abc:meaning1 of abc;meaning2 of abc;meaning3 of abc
+date:A sweet fruit that grows on a palm tree, typically oval and brown.;The specific day of the month or year.
+xylophone:A musical instrument with wooden bars struck by mallets.;A term used to describe a pattern or design resembling the instrument.
+book:A volume of a set or series of books.;A set of written or printed pages, usually bound with a protective cover.
+yellow:The color between green and orange in the visible spectrum, often associated with sunlight.;A term used to describe something that is cheerful or bright.
+ice:Frozen water, typically in the form of cubes or sheets, used to cool drinks or preserve food.;A term used to describe something very cold or frozen.
+apple:A fruit that is typically round, red, green, or yellow, and has a crisp flesh.;The tree that bears apples.
+lemon:A yellow, acidic fruit used to add flavor or in cooking.;A term used to describe a defective or unsatisfactory product.
+mountain:A large natural elevation of the earth's surface rising abruptly from the surrounding level.;A large pile or heap of something.
+computer:An electronic device for storing and processing data.
+honey:A sweet, sticky substance made by bees from nectar.;A term of endearment used for someone you care about.
+waterfall:A flow of water over the edge of a cliff or precipice.;A term used to describe a sudden and dramatic flow or surge of something.
+Phone:A device used for voice communication over distances.
+notebook:A small book with blank or ruled pages for writing notes.;A portable computer used for various tasks.
+banana:A long curved fruit with a yellow skin and soft, sweet flesh.;A tropical plant that produces bananas.
+zebra:An African wild horse with black and white stripes.;A term used to describe something that is distinctively patterned or striped.
+quilt:A warm bed covering made of padding enclosed between layers of fabric.;A patchwork of different items or ideas.
+violin:A wooden stringed instrument played with a bow.;A term used to describe something small and delicate.
+star:A celestial body that emits light and heat, typically seen as a point of light in the night sky.;A prominent person in a particular field, such as entertainment or sports.
+umbrella:A device used to provide protection from rain or sunlight, consisting of a collapsible canopy.;A term used to describe something that encompasses a range of things.
+grape:A small, round, smooth-skinned fruit that is typically green, red, or black.;A type of vine that produces grapes.
+tiger:A large striped feline found in Asia, known for its strength and power.;A term used to describe a fierce or aggressive person.
+Sun:A term used metaphorically for something or someone that provides warmth or happiness.;The star around which the earth orbits and which provides light and warmth.
+flower:The seed-bearing part of a plant, often colorful and fragrant.;A plant that blooms, usually in a decorative way.
+orange:A round fruit with a tough skin, typically orange, and sweet flesh.;A color between red and yellow in the visible spectrum.
+rose:A type of flowering shrub known for its fragrant and often thorny blooms.;A term used to describe something that is cherished or admired.
+jungle:An area of dense, tropical vegetation and wildlife.;A chaotic and disorderly environment.
+elephant:A large gray mammal with a trunk and tusks, native to Africa and Asia.;A term used to describe something large or unwieldy.
+kite:A lightweight, flat object flown in the air at the end of a string.;A term used to describe something that flies or rises easily.
+penguin:A flightless bird that lives in the southern hemisphere and has black and white plumage.;A term used for a type of software or hardware configuration.
+carrot:A tapering orange-colored root eaten as a vegetable.;A type of vegetable with edible taproots and green foliage.
