@@ -73,9 +73,23 @@ public class DictionaryServer {
     }
     
     public static void main(String[] args) {
-        int port = args.length > 0 ? Integer.parseInt(args[0]) : 3080;
-        new DictionaryServer(port);
+        if (args.length > 0) {
+            try {
+                int port = Integer.parseInt(args[0]);
+                if (port < 0 || port > 65535) {
+                    System.err.println("Error: Port number must be between 0 and 65535.");
+                } else {
+                    new DictionaryServer(port);
+                }
+            } catch (NumberFormatException e) {
+                System.err.println("Error: Invalid port number. Please provide a valid integer for the port.");
+            }
+        } else {
+            System.err.println("Error: Port number is required. Please provide a port number as a command-line argument.");
+        }
     }
+    
+    
 }
 
 

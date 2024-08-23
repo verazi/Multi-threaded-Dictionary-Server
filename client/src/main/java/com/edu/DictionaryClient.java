@@ -69,8 +69,19 @@ public class DictionaryClient extends Application {
 
         connectButton.setOnAction(e -> {
             String serverAddress = serverField.getText().trim();
-            int port = Integer.parseInt(portField.getText().trim());
-            connectToServer(serverAddress, port, statusLabel);
+            String portText = portField.getText().trim();
+            
+            // Validate port number
+            try {
+                int port = Integer.parseInt(portText);
+                if (port < 0 || port > 65535) {
+                    statusLabel.setText("Error: Port number must be between 0 and 65535.");
+                } else {
+                    connectToServer(serverAddress, port, statusLabel);
+                }
+            } catch (NumberFormatException ex) {
+                statusLabel.setText("Error: Invalid port number. Please enter a valid integer.");
+            }
         });
 
         // Create and show the scene
