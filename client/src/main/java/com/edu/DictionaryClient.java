@@ -26,6 +26,7 @@ public class DictionaryClient extends Application {
     private DataInputStream in;
     private TextField wordField;
     private TextField meaningField;
+    private TextField existingMeaningField;
     private TextArea logArea;
     private ListView<String> meaningsList;
     private Button queryButton;
@@ -115,48 +116,54 @@ public class DictionaryClient extends Application {
         // UI components for the dictionary page
         wordField = new TextField();
         wordField.setPromptText("Enter word");
-
+    
         meaningField = new TextField();
         meaningField.setPromptText("Enter meaning");
-
+    
+        existingMeaningField = new TextField();
+        existingMeaningField.setPromptText("Enter existing meaning (for update)");
+    
         meaningsList = new ListView<>();
-
+    
         queryButton = new Button("Query");
         addButton = new Button("Add Word");
         removeButton = new Button("Remove Word");
         addMeaningButton = new Button("Add Meaning");
         updateMeaningButton = new Button("Update Meaning");
-
+    
         logArea = new TextArea();
         logArea.setEditable(false);
         logArea.setWrapText(true);
-
+    
         // Layout for the dictionary page
         GridPane gridPane = new GridPane();
         gridPane.setPadding(new Insets(10, 10, 10, 10));
         gridPane.setVgap(10);
         gridPane.setHgap(10);
-
+    
         gridPane.add(new Label("Word:"), 0, 0);
         gridPane.add(wordField, 1, 0);
         gridPane.add(new Label("Meanings:"), 0, 1);
         gridPane.add(meaningsList, 1, 1, 1, 4);
-
+    
         HBox meaningInputBox = new HBox(20, meaningField, addMeaningButton, updateMeaningButton);
         gridPane.add(meaningInputBox, 1, 5);
-
+    
+        HBox existingMeaningInputBox = new HBox(20, existingMeaningField);
+        gridPane.add(existingMeaningInputBox, 1, 6);
+    
         VBox buttonBox = new VBox(10, queryButton, addButton, removeButton);
         gridPane.add(buttonBox, 2, 0, 1, 4);
-        gridPane.add(new Label("Log:"), 0, 6);
-        gridPane.add(logArea, 1, 6, 2, 1);
-
+        gridPane.add(new Label("Log:"), 0, 7);
+        gridPane.add(logArea, 1, 7, 2, 1);
+    
         // Set button actions
         queryButton.setOnAction(e -> runTask(this::queryWord));
         addButton.setOnAction(e -> runTask(this::addWord));
         removeButton.setOnAction(e -> runTask(this::removeWord));
         addMeaningButton.setOnAction(e -> runTask(this::addMeaning));
         updateMeaningButton.setOnAction(e -> runTask(this::updateMeaning));
-
+    
         // Create and show the dictionary page
         Scene dictionaryScene = new Scene(gridPane, 600, 400);
         primaryStage.setScene(dictionaryScene);
@@ -241,17 +248,18 @@ public class DictionaryClient extends Application {
         }
     }
 
-    private void updateMeaning() {
+    private synchronized void updateMeaning() {
         String word = wordField.getText().trim();
+        String existingMeaning = existingMeaningField.getText().trim();
         String newMeaning = meaningField.getText().trim();
-
-        if (word.isEmpty() || newMeaning.isEmpty()) {
-            Platform.runLater(() -> logArea.appendText("Please enter both word and new meaning to update.\n"));
+    
+        if (word.isEmpty() || existingMeaning.isEmpty() || newMeaning.isEmpty()) {
+            Platform.runLater(() -> logArea.appendText("Please enter word, existing meaning, and new meaning to update.\n"));
             return;
         }
-
+    
         try {
-            out.writeUTF("UPDATE_MEANING%" + word + "%" + newMeaning);
+            out.writeUTF("UPDATE_MEANING%" + word + "%" + existingMeaning + "%" + newMeaning);
             String response = readResponse();
             Platform.runLater(() -> {
                 meaningsList.getItems().clear();
@@ -261,6 +269,7 @@ public class DictionaryClient extends Application {
             handleError("Error updating the word's meaning.", e);
         }
     }
+    
 
     private String readResponse() throws IOException {
         return in.readUTF();

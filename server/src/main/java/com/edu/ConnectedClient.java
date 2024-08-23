@@ -55,7 +55,7 @@ public class ConnectedClient {
 
 
     private void handleClientCommand(String command) throws IOException {
-        String[] parts = command.split("%", 3);
+        String[] parts = command.split("%", 4);
         String action = parts[0].toUpperCase();
         String word;
         String response;
@@ -86,8 +86,9 @@ public class ConnectedClient {
 
             case "UPDATE_MEANING":
                 word = parts[1];
-                String newMeaning = parts[2];
-                response = updateMeaning(word, newMeaning);
+                String existingMeaning = parts[2];
+                String newMeaning = parts[3];
+                response = updateMeaning(word, existingMeaning, newMeaning);
                 break;
 
             default:
@@ -146,11 +147,16 @@ public class ConnectedClient {
         }
     }
 
-    private String updateMeaning(String word, String newMeaning) {
+    private String updateMeaning(String word, String existingMeaning, String newMeaning) {
         if (dictionary.containsKey(word)) {
-            dictionary.get(word).clear();
-            dictionary.get(word).add(newMeaning);
-            return "Meaning updated successfully.";
+            List<String> meanings = dictionary.get(word);
+            if (meanings.contains(existingMeaning)) {
+                int index = meanings.indexOf(existingMeaning);
+                meanings.set(index, newMeaning);
+                return "Meaning updated successfully.";
+            } else {
+                return "Existing meaning not found.";
+            }
         } else {
             return "Word not found.";
         }
