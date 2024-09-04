@@ -16,7 +16,7 @@ Make sure you’ve got JDK 21.0.3 installed. Then, follow these steps:
 1. Download the following files and place them into a folder
    - `DictionaryClient.jar`
    - `DictionaryServer.jar`
-   - `dictionary.txt`
+   - `dictionary.txt` (optional)
 2. Navigate to the correct directory
    ```
    cd /path/to/folder
@@ -33,7 +33,17 @@ Make sure you’ve got JDK 21.0.3 installed. Then, follow these steps:
 
 ## 🖼️ See It in Action
 
-**Client Login Menu**
+**Server**
+
+Experience the sever management:
+
+<img src="https://github.com/verazi/Multithreaded-Dictionary-Server/blob/master/zreport/server.png" alt="2 clients" width="300"/>
+
+Stay informed with real-time server activity reports in terminal:
+
+<img src="https://github.com/verazi/Multithreaded-Dictionary-Server/blob/master/zreport/ServerReport.png" alt="Server report" width="300"/>
+
+**Client**
 
 Experience the intuitive client login menu:
 
@@ -44,16 +54,6 @@ Experience the intuitive client login menu:
 Open several clients and manage words simultanelously:
 
 <img src="https://github.com/verazi/Multithreaded-Dictionary-Server/blob/master/zreport/ServalClient.png" alt="2 clients" width="800"/>
-
-**Server Activity Report**
-
-Experience the sever management:
-
-<img src="https://github.com/verazi/Multithreaded-Dictionary-Server/blob/master/zreport/server.png" alt="2 clients" width="300"/>
-
-Stay informed with real-time server activity reports:
-
-<img src="https://github.com/verazi/Multithreaded-Dictionary-Server/blob/master/zreport/ServerReport.png" alt="Server report" width="300"/>
 
 
 
