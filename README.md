@@ -1,5 +1,5 @@
-# Personal Dictionary App! 📚
-Welcome to the your custom Dictionary App! This Java-based dictionary project is your go-to solution for managing words and definitions with style and efficiency.
+# Personal Dictionary📚
+This Java-based dictionary project is your go-to solution for managing words and definitions with style and efficiency.
 
 ## System Design
 - **Client-Server Model** <br>
